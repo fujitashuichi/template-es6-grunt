@@ -1,7 +1,7 @@
 // this is old gruntfile using load-grunt-config part of...
 // but it can be running
 
-module.exports = function(grunt, options) {
+module.exports = function(grunt) {
 
 	require('time-grunt')(grunt);
 
@@ -9,14 +9,16 @@ module.exports = function(grunt, options) {
 
 	Grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		// sass compile
 		sass: {
-			styles: {
+			dist: {
 				files: [{
 					src: './src/scss/main.scss',
 					dest: './src/dist/css/main.css'
 				}]
 			}
 		},
+		// add prefix
 		autoprefixer: {
 			styles: {
 				options: {
@@ -24,26 +26,49 @@ module.exports = function(grunt, options) {
 				},
 				files: [{
 					src: './src/dist/css/main.css',
-					dest: './main/css/main.css'
+					dest: './htdocs/css/main.css'
 				}]
 			}
 		},
+		// es6 files compile to es5
 		babel: {
 			options: {
 				sourceMap: false
 			},
 			dist: {
-				files: [{
-					src: './src/es6/**/*.js',
-					dest: './src/dist/js/<%= pkg.name %>.js'
-				}]
+				files: {
+					src: ['./src/es-six/**/*.js'],
+					dest: './src/dist/js'
+				}
 			}
 		},
+		// use 'require' on browser
+		browserify: {
+			dist: {
+				files: {
+					files: ['./src/dist/js/core.js'],
+					dist: './htdocs/js/core.js'
+				}
+			}
+		}
+
 		// watch
 		watch: {
 			sass: {
 				files: ['./src/scss/**/*.scss'],
-				tasks: 'sass: styles'
+				tasks: 'sass: dist'
+			},
+			autoprefixer: {
+				files: ['./src/dist/css/main.css'],
+				tasks: 'autoprefixer: styles'
+			},
+			babel: {
+				files: ['./src/es-six/**/*.js'],
+				tasks: 'babel'
+			},
+			browserify: {
+				files: ['./htdocs/js/core.js'],
+				tasks: 'browserify'
 			}
 		}
 	});

@@ -1,3 +1,4 @@
+/*
 module.exports = {
 	watch: [
 		'sass':'style',
@@ -5,3 +6,4 @@ module.exports = {
 	],
 	default: ['watch']
 }
+*/
