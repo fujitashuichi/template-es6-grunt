@@ -1,9 +1,9 @@
-/*
-module.exports = {
-	watch: [
-		'sass':'style',
-		'autoprefixer'
-	],
-	default: ['watch']
+module.exports = function(grunt, options) {
+	return {
+		'watch': [
+			'sass: styles',
+			'autoprefixer: styles'
+		],
+		'default': ['watch']
+	}
 }
-*/
