@@ -1,5 +1,22 @@
 @charset "UTF-8";
 //--------------------------------!!!
+// Variable
+//--------------------------------¡¡¡
+$fc: #FFF;
+$bg: #000;
+$bd: 1px solid $fc;
+
+// test colorHighliter
+$hoge-red-01: #F6C;
+$hoge-green-01: #6FC;
+$hoge-blue-01: #6CF;
+$hoge-red-02: #F66;
+$hoge-green-02: #6F6;
+$hoge-blue-02: #66F;
+
+// snow violet lime brown silver skyblue orange
+
+//--------------------------------!!!
 // Mixin
 //--------------------------------¡¡¡
 @mixin scale($widscl, $heiscl) {
@@ -24,20 +41,3 @@
 	right: $aRight;
 	margin: auto;
 }
-
-//--------------------------------!!!
-// Variable
-//--------------------------------¡¡¡
-$fc: #FFF;
-$bg: #000;
-$bd: 1px solid $fc;
-
-// test colorHighliter
-$hoge-red-01: #F6C;
-$hoge-green-01: #6FC;
-$hoge-blue-01: #6CF;
-$hoge-red-02: #F66;
-$hoge-green-02: #6F6;
-$hoge-blue-02: #66F;
-
-// snow violet lime brown silver skyblue orange
